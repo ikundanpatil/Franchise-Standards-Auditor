@@ -187,5 +187,61 @@ def store_history(db: Session, store: Store, *, days: int = 90) -> dict:
     }
 
 
+def risk_history(db: Session, store: Store, *, days: int = 90) -> dict:
+    """Per-inspection risk / compliance points over a window (GET /stores/{id}/risk-history)."""
+    since = utcnow() - timedelta(days=days)
+    rows = db.execute(
+        select(
+            Inspection.id,
+            Inspection.completed_at,
+            Inspection.risk_score,
+            Inspection.compliance_score,
+        )
+        .where(
+            Inspection.store_id == store.id,
+            Inspection.completed_at.is_not(None),
+            Inspection.risk_score.is_not(None),
+            Inspection.completed_at >= since,
+        )
+        .order_by(Inspection.completed_at.asc())
+    ).all()
+
+    points = [
+        {
+            "date": completed_at.date().isoformat(),
+            "risk_score": int(risk),
+            "compliance_score": int(compliance) if compliance is not None else 100 - int(risk),
+            "inspection_id": ins_id,
+        }
+        for ins_id, completed_at, risk, compliance in rows
+    ]
+    violations_open = (
+        db.scalar(
+            select(func.count(Violation.id)).where(
+                Violation.store_id == store.id,
+                Violation.status.in_([ViolationStatus.OPEN, ViolationStatus.IN_REMEDIATION]),
+            )
+        )
+        or 0
+    )
+    violations_resolved = (
+        db.scalar(
+            select(func.count(Violation.id)).where(
+                Violation.store_id == store.id, Violation.status == ViolationStatus.RESOLVED
+            )
+        )
+        or 0
+    )
+    return {
+        "store_id": store.id,
+        "window_days": days,
+        "current_risk_level": store.risk_level.value,
+        "current_compliance_score": store.compliance_score,
+        "points": points,
+        "violations_open": int(violations_open),
+        "violations_resolved": int(violations_resolved),
+    }
+
+
 def distinct_regions(db: Session) -> list[str]:
     return list(db.scalars(select(Store.region).distinct().order_by(Store.region.asc())))

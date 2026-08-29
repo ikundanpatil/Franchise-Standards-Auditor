@@ -113,6 +113,15 @@ class SupabaseClient:
             return rows[0]
         return {"inserted": True}
 
+    def fetch_object_bytes(self, url_or_path: str) -> bytes:
+        """Download a stored object — accepts a full public URL or a ``bucket/path``."""
+        if url_or_path.startswith("http://") or url_or_path.startswith("https://"):
+            resp = self._client.get(url_or_path)
+        else:
+            resp = self._client.get(f"/storage/v1/object/public/{url_or_path.lstrip('/')}")
+        raise_for_upstream("Supabase Storage", resp)
+        return resp.content
+
     # -- diagnostics -------------------------------------------------------
     def ping(self) -> bool:
         try:
@@ -158,6 +167,10 @@ def upload_inspection_image(
 
 def save_report(payload: dict[str, Any]) -> dict[str, Any]:
     return get_supabase_client().save_report(payload)
+
+
+def fetch_object_bytes(url_or_path: str) -> bytes:
+    return get_supabase_client().fetch_object_bytes(url_or_path)
 
 
 def _safe_segment(name: str) -> str:

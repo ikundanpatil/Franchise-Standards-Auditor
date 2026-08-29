@@ -11,6 +11,7 @@ from app.api.deps import CurrentUser, DbSession, require_roles
 from app.models.enums import RiskLevel, StoreStatus, UserRole
 from app.schemas.common import Message, Page
 from app.schemas.complaint import ComplaintOut
+from app.schemas.dashboard import RiskHistory
 from app.schemas.inspection import InspectionOut
 from app.schemas.store import StoreCreate, StoreDetail, StoreHistory, StoreOut, StoreUpdate
 from app.services import complaint_service, inspection_service, store_service
@@ -107,3 +108,14 @@ def store_history(
 ) -> StoreHistory:
     store = store_service.get_store(db, store_id, user)
     return StoreHistory.model_validate(store_service.store_history(db, store, days=days))
+
+
+@router.get("/{store_id}/risk-history", response_model=RiskHistory)
+def store_risk_history(
+    store_id: uuid.UUID,
+    user: CurrentUser,
+    db: DbSession,
+    days: int = Query(90, ge=7, le=365),
+) -> RiskHistory:
+    store = store_service.get_store(db, store_id, user)
+    return RiskHistory.model_validate(store_service.risk_history(db, store, days=days))

@@ -130,6 +130,38 @@ def generate_report(
     return report
 
 
+def ensure_pending(db: Session, inspection: Inspection, actor: User) -> Report:
+    """Create (or return) a placeholder report row so a client has an id to poll
+    while the real report is generated in the background."""
+    existing = db.scalar(select(Report).where(Report.inspection_id == inspection.id))
+    if existing is not None:
+        return existing
+    report = Report(
+        inspection_id=inspection.id,
+        store_id=inspection.store_id,
+        reference=make_reference("FG-REP"),
+        status=ReportStatus.DRAFT,
+        risk_score=inspection.risk_score or 0,
+        risk_level=inspection.risk_level or RiskLevel.LOW,
+        grade="P",
+        minor_count=0,
+        major_count=0,
+        critical_count=0,
+        summary="Report generation in progress…",
+        recommendations=[],
+        timeline=[],
+        evidence=[],
+        inspector_name=inspection.inspector.full_name if inspection.inspector else None,
+        model_version=inspection.model_version,
+        generated_by_id=actor.id,
+        generated_at=utcnow(),
+    )
+    db.add(report)
+    db.commit()
+    db.refresh(report)
+    return report
+
+
 def share_report(db: Session, report: Report) -> Report:
     if report.share_token is None:
         report.share_token = make_share_token()

@@ -136,6 +136,40 @@ persists an `AIAnalysis` row, and writes detections back as `Violation`s.
 
 Errors use a stable envelope: `{"error": {"code": "...", "message": "...", "details": ...}}`.
 
+## End-to-end inspection flow
+
+`POST /inspection/upload` → `POST /inspection/analyze` runs the full pipeline and
+persists everything; the dashboard is a live read, so it reflects the result on
+the next call.
+
+```
+upload image ─▶ Supabase Storage ─▶ YOLO (or simulated) ─▶ violations in Postgres
+   ─▶ Gemini complaint triage ─▶ Risk Engine (compliance score) ─▶ compliance report
+   ─▶ report saved to DB ─▶ dashboard metrics update
+```
+
+| Endpoint | Purpose |
+|---|---|
+| `POST /api/v1/inspection/upload` | multipart (`store_id`, `images[]`, `complaint_text?`, `checklist?`) → creates an inspection, pushes each image to Supabase Storage (degrades to a warning if unconfigured), returns `inspection_id` + `ws_url` |
+| `POST /api/v1/inspection/analyze` | `{inspection_id, complaint_text?, background_report?, save_report_to_supabase?, seed?}` → vision → violations → Gemini → **Risk Engine** → report. Structured JSON: detections, `violations_persisted`, `risk{score,compliance_score,level,breakdown}`, `complaint_analysis`, `report{id,reference,status,pending}`, `warnings[]` |
+| `GET /api/v1/dashboard/summary` | live KPIs, risk mix, compliance trend (6 mo), today's inspections, recent alerts |
+| `GET /api/v1/stores/{id}/risk-history` | per-inspection `risk_score` / `compliance_score` points over a window + open/resolved counts |
+| `GET /api/v1/reports/{id}` | full report (unchanged) |
+| `WS /api/v1/ws/inspections/{id}?token=<jwt>` | live progress: `{stage, progress, message, data}` — `connected → detecting → complaint → scoring → report → done` |
+| `WS /api/v1/ws/dashboard?token=<jwt>` | a `refresh` ping whenever any analysis completes |
+
+**Risk Engine** (`app/services/risk_service.py`): `severity-weighted violations
+(6/16/34) + 4·failed-checklist-area + complaint bump (3/8/16)` → clamped 0–100
+risk score; `compliance = 100 − risk`; bands 85/70/50.
+
+**Background report**: `background_report=true` returns a `draft` placeholder
+report id immediately and finishes generation in a FastAPI `BackgroundTask`
+(Gemini narrative + optional Supabase persist), announcing `report ready` on the
+inspection WebSocket.
+
+WebSocket fan-out is in-process (`app/realtime/progress.py`); multi-worker needs
+Redis pub/sub behind the same `publish`/`subscribe` surface.
+
 ## External integrations (`app/integrations/`)
 
 All secrets come from `.env` — nothing hardcoded. An unconfigured integration

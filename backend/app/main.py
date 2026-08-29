@@ -28,14 +28,20 @@ logger = get_logger("app")
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
+    import asyncio
+
+    from app.realtime import progress_hub
+
     configure_logging()
     settings.assert_production_safe()
+    progress_hub.bind_loop(asyncio.get_running_loop())  # sync publishers reach the loop
     logger.info(
-        "starting %s v%s (env=%s, ai=%s)",
+        "starting %s v%s (env=%s, ai=%s, vision=%s)",
         settings.PROJECT_NAME,
         __version__,
         settings.ENVIRONMENT,
         settings.AI_PROVIDER,
+        settings.VISION_BACKEND,
     )
 
     if settings.AUTO_CREATE_TABLES:
