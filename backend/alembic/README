@@ -1,0 +1,14 @@
+Alembic migrations for FranchiseGuard AI.
+
+The database URL is taken from app settings (DATABASE_URL), not alembic.ini.
+
+Common commands (run from backend/):
+
+    alembic upgrade head              # apply all migrations
+    alembic downgrade -1              # roll back one
+    alembic revision --autogenerate -m "add X"   # diff models -> new migration
+    alembic current                  # show applied revision
+    alembic history --verbose
+
+The initial migration (0001) is the full baseline schema. Regenerate from an
+empty database with:  alembic upgrade head

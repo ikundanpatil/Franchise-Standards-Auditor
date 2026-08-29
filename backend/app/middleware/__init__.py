@@ -1,0 +1,5 @@
+"""Custom ASGI middleware."""
+
+from app.middleware.logging import RequestLoggingMiddleware
+
+__all__ = ["RequestLoggingMiddleware"]

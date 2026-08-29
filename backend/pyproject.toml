@@ -1,0 +1,30 @@
+[project]
+name = "franchiseguard-backend"
+version = "0.1.0"
+description = "FranchiseGuard AI — FastAPI backend (RocketRide Buildathon, PS-18)"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["alembic/versions", ".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "C4", "SIM", "ARG", "TID"]
+ignore = [
+    "B008",   # FastAPI uses `Depends(...)` as a default value by design
+    "E501",   # long lines in docstrings / templated text
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["ARG001", "S101"]
+"app/db/seed.py" = ["E501"]
+# Router functions keep an unused `user: CurrentUser` param purely to require auth.
+"app/routers/*" = ["ARG001"]
+# TypeDecorator hooks must keep the `dialect` parameter in their signature.
+"app/db/types.py" = ["ARG002"]
+
+[tool.pytest.ini_options]
+addopts = "-q --strict-markers --disable-warnings"
+testpaths = ["tests"]
