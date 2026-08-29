@@ -1,0 +1,130 @@
+.frame {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	border-radius: var(--fg-r-lg);
+	overflow: hidden;
+	background: #22374f;
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08), var(--fg-shadow-card);
+	isolation: isolate;
+}
+
+.scene {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.overlay {
+	position: absolute;
+	inset: 0;
+}
+
+/* scanning fx */
+.scanGrid {
+	position: absolute;
+	inset: 0;
+	background-image: linear-gradient(rgba(124, 92, 255, 0.16) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(124, 92, 255, 0.16) 1px, transparent 1px);
+	background-size: 26px 26px;
+	mix-blend-mode: screen;
+	pointer-events: none;
+}
+
+.scanLine {
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 44px;
+	top: 0;
+	background: linear-gradient(180deg, rgba(93, 165, 255, 0), rgba(93, 165, 255, 0.55), rgba(93, 165, 255, 0));
+	box-shadow: 0 0 22px 6px rgba(93, 165, 255, 0.35);
+	animation: fgScan 2.1s var(--fg-ease) infinite;
+	pointer-events: none;
+}
+
+/* HUD */
+.hud {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	right: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	pointer-events: none;
+}
+
+.hudTag {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 4px 8px;
+	border-radius: var(--fg-r-xs);
+	background: rgba(6, 12, 22, 0.55);
+	backdrop-filter: blur(4px);
+	color: #eaf1fb;
+	font-family: var(--fg-font-mono);
+	font-size: 8.5px;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+}
+
+.rec {
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: #ff5470;
+	animation: fgFadeIn 1s ease-in-out infinite alternate;
+}
+
+.hudCaption {
+	padding: 4px 8px;
+	border-radius: var(--fg-r-xs);
+	background: rgba(6, 12, 22, 0.55);
+	backdrop-filter: blur(4px);
+	color: #c3d0e4;
+	font-family: var(--fg-font-mono);
+	font-size: 8.5px;
+	letter-spacing: 0.06em;
+	max-width: 55%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* framing corners */
+.corner {
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	border: 2px solid rgba(234, 241, 251, 0.7);
+	pointer-events: none;
+}
+.tl {
+	top: 8px;
+	left: 8px;
+	border-right: none;
+	border-bottom: none;
+}
+.tr {
+	top: 8px;
+	right: 8px;
+	border-left: none;
+	border-bottom: none;
+}
+.bl {
+	bottom: 8px;
+	left: 8px;
+	border-right: none;
+	border-top: none;
+}
+.br {
+	bottom: 8px;
+	right: 8px;
+	border-left: none;
+	border-top: none;
+}

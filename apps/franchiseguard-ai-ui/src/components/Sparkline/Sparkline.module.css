@@ -1,0 +1,21 @@
+.spark {
+	display: block;
+	overflow: visible;
+}
+
+.area {
+	fill: var(--fg-tone, var(--fg-brand));
+	opacity: 0.14;
+}
+
+.line {
+	fill: none;
+	stroke: var(--fg-tone, var(--fg-brand));
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.cap {
+	fill: var(--fg-tone, var(--fg-brand));
+}

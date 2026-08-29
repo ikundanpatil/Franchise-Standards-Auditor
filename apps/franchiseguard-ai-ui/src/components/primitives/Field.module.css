@@ -1,0 +1,77 @@
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.label {
+	font-family: var(--fg-font-mono);
+	font-size: 10px;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--fg-ink-soft);
+}
+
+.control {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.icon {
+	position: absolute;
+	left: 13px;
+	color: var(--fg-ink-faint);
+	pointer-events: none;
+}
+
+.input {
+	width: 100%;
+	padding: 13px 14px;
+	border-radius: var(--fg-r-md);
+	background: var(--fg-surface);
+	border: 1px solid var(--fg-hairline-strong);
+	color: var(--fg-ink);
+	font-size: 14px;
+	outline: none;
+	transition: border-color var(--fg-dur-1) var(--fg-ease), box-shadow var(--fg-dur-1) var(--fg-ease);
+}
+
+.input::placeholder {
+	color: var(--fg-ink-faint);
+}
+
+.input:focus {
+	border-color: var(--fg-brand);
+	box-shadow: 0 0 0 4px var(--fg-brand-tint);
+}
+
+.hasIcon {
+	padding-left: 40px;
+}
+
+.textarea {
+	min-height: 96px;
+	resize: vertical;
+	line-height: 1.5;
+	font-family: var(--fg-font-sans);
+}
+
+.footRow {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+}
+
+.hint {
+	font-size: 11px;
+	color: var(--fg-ink-faint);
+}
+
+.counter {
+	font-family: var(--fg-font-mono);
+	font-size: 10px;
+	color: var(--fg-ink-faint);
+	margin-left: auto;
+}

@@ -1,0 +1,32 @@
+.toast {
+	position: absolute;
+	left: 50%;
+	bottom: 88px;
+	transform: translate(-50%, 12px);
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	max-width: 82%;
+	padding: 10px 14px;
+	border-radius: var(--fg-r-pill);
+	background: var(--fg-ink);
+	color: var(--fg-ground);
+	font-size: 11.5px;
+	font-weight: 500;
+	line-height: 1.3;
+	box-shadow: var(--fg-shadow-pop);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.22s ease, transform 0.22s ease;
+	z-index: 20;
+}
+
+.toast svg {
+	flex: none;
+	color: var(--fg-brand);
+}
+
+.show {
+	opacity: 1;
+	transform: translate(-50%, 0);
+}

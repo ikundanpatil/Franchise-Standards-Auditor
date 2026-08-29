@@ -1,0 +1,68 @@
+.header {
+	flex: none;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 14px 16px 12px;
+	background: var(--fg-ground);
+}
+
+.back,
+.action {
+	flex: none;
+	width: 38px;
+	height: 38px;
+	border-radius: var(--fg-r-md);
+	display: grid;
+	place-items: center;
+	color: var(--fg-ink-soft);
+	background: var(--fg-surface);
+	border: 1px solid var(--fg-hairline);
+	box-shadow: var(--fg-shadow-sm);
+	transition: transform var(--fg-dur-1) var(--fg-ease);
+}
+
+.back:active,
+.action:active {
+	transform: scale(0.92);
+}
+
+.back:focus-visible,
+.action:focus-visible {
+	outline: 2px solid var(--fg-brand);
+	outline-offset: 2px;
+}
+
+.titles {
+	flex: 1;
+	min-width: 0;
+}
+
+.title {
+	display: flex;
+	align-items: center;
+	gap: 7px;
+	font-family: var(--fg-font-display);
+	font-weight: 600;
+	font-size: 17px;
+	letter-spacing: -0.02em;
+	color: var(--fg-ink);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.titleIcon {
+	flex: none;
+	color: var(--fg-brand);
+}
+
+.sub {
+	font-family: var(--fg-font-mono);
+	font-size: 10.5px;
+	color: var(--fg-ink-faint);
+	margin-top: 2px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

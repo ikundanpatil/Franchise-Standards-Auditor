@@ -1,0 +1,13 @@
+{
+  "name": "franchiseguard-workspace",
+  "version": "0.0.0",
+  "private": true,
+  "description": "FranchiseGuard AI — pnpm workspace root (apps/*).",
+  "license": "MIT",
+  "packageManager": "pnpm@11.24.0",
+  "scripts": {
+    "dev": "pnpm --filter local-franchiseguard-ai dev",
+    "build": "pnpm --filter local-franchiseguard-ai build",
+    "typecheck": "pnpm -r typecheck"
+  }
+}

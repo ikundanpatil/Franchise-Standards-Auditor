@@ -1,0 +1,17 @@
+.sk {
+	display: block;
+	background: linear-gradient(
+		100deg,
+		var(--fg-surface-sunk) 30%,
+		var(--fg-hairline) 48%,
+		var(--fg-surface-sunk) 66%
+	);
+	background-size: 220% 100%;
+	animation: fgShimmer 1.4s ease-in-out infinite;
+}
+
+.stack {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}

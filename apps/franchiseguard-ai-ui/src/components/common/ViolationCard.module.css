@@ -1,0 +1,142 @@
+.card {
+	border-radius: var(--fg-r-lg);
+	background: var(--fg-surface);
+	border: 1px solid var(--fg-hairline);
+	box-shadow: var(--fg-shadow-sm);
+	overflow: hidden;
+	transition: border-color var(--fg-dur-1) var(--fg-ease);
+}
+.active {
+	border-color: var(--fg-tone);
+	box-shadow: 0 0 0 1px var(--fg-tone), var(--fg-shadow-card);
+}
+
+.head {
+	display: flex;
+	align-items: center;
+	gap: 11px;
+	width: 100%;
+	padding: 12px 13px 8px;
+}
+
+.glyph {
+	flex: none;
+	width: 34px;
+	height: 34px;
+	border-radius: var(--fg-r-sm);
+	display: grid;
+	place-items: center;
+	color: var(--fg-tone);
+	background: var(--fg-tone-soft);
+}
+
+.headBody {
+	flex: 1;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	line-height: 1.3;
+}
+.title {
+	font-family: var(--fg-font-display);
+	font-weight: 600;
+	font-size: 13.5px;
+	color: var(--fg-ink);
+}
+.cat {
+	font-family: var(--fg-font-mono);
+	font-size: 9.5px;
+	color: var(--fg-ink-faint);
+}
+
+.right {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.chev {
+	color: var(--fg-ink-faint);
+	transition: transform var(--fg-dur-2) var(--fg-ease);
+}
+.chevOpen {
+	transform: rotate(180deg);
+}
+
+.confRow {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 13px 12px;
+}
+.confLabel {
+	font-family: var(--fg-font-mono);
+	font-size: 9px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--fg-ink-faint);
+}
+.confTrack {
+	flex: 1;
+	height: 6px;
+	border-radius: var(--fg-r-pill);
+	background: var(--fg-surface-sunk);
+	overflow: hidden;
+}
+.confFill {
+	display: block;
+	height: 100%;
+	border-radius: inherit;
+	background: var(--fg-tone);
+	animation: fgGrowX 0.9s var(--fg-ease-out);
+	transform-origin: left;
+}
+.confVal {
+	font-family: var(--fg-font-mono);
+	font-size: 11px;
+	font-weight: 700;
+	color: var(--fg-tone);
+	min-width: 34px;
+	text-align: right;
+}
+
+.detail {
+	padding: 0 13px 13px;
+	animation: fgFadeUp var(--fg-dur-2) var(--fg-ease);
+}
+.explain {
+	font-size: 12px;
+	line-height: 1.55;
+	color: var(--fg-ink-soft);
+	padding-top: 10px;
+	border-top: 1px solid var(--fg-hairline);
+}
+.kv {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin-top: 10px;
+}
+.kv span {
+	display: flex;
+	align-items: flex-start;
+	gap: 6px;
+	font-family: var(--fg-font-mono);
+	font-size: 10px;
+	line-height: 1.5;
+	color: var(--fg-ink-faint);
+}
+.kv span svg {
+	flex: none;
+	margin-top: 2px;
+	color: var(--fg-tone);
+}
+
+@keyframes fgGrowX {
+	from {
+		transform: scaleX(0);
+	}
+	to {
+		transform: scaleX(1);
+	}
+}

@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug FranchiseGuard AI",
+      "type": "msedge",
+      "request": "launch",
+      "url": "https://staging.rocketride.ai:443/?appid=team_franchiseguard.franchiseguard-ai&rrdev=1",
+      "webRoot": "${workspaceFolder}/apps/franchiseguard-ai-ui",
+      "sourceMapPathOverrides": {
+        "webpack:///./*": "${workspaceFolder}/apps/franchiseguard-ai-ui/*",
+        "webpack:///*": "*"
+      }
+    }
+  ]
+}

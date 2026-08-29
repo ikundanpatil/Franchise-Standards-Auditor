@@ -1,0 +1,74 @@
+.root {
+	position: absolute;
+	inset: 0;
+	z-index: 80;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.scrim {
+	position: absolute;
+	inset: 0;
+	background: rgba(9, 17, 34, 0.42);
+	backdrop-filter: blur(2px);
+	animation: fgFadeIn var(--fg-dur-2) ease;
+}
+
+.panel {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	max-height: 82%;
+	background: var(--fg-surface);
+	border-radius: var(--fg-r-xl) var(--fg-r-xl) 0 0;
+	box-shadow: var(--fg-shadow-pop);
+	animation: fgSlideUpSheet var(--fg-dur-3) var(--fg-ease-out);
+	padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.grip {
+	width: 38px;
+	height: 4px;
+	border-radius: var(--fg-r-pill);
+	background: var(--fg-hairline-strong);
+	margin: 10px auto 4px;
+}
+
+.head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 8px 16px 12px;
+	border-bottom: 1px solid var(--fg-hairline);
+}
+
+.title {
+	font-family: var(--fg-font-display);
+	font-weight: 600;
+	font-size: 15px;
+	color: var(--fg-ink);
+}
+
+.close {
+	width: 32px;
+	height: 32px;
+	border-radius: var(--fg-r-sm);
+	display: grid;
+	place-items: center;
+	color: var(--fg-ink-soft);
+	background: var(--fg-surface-sunk);
+}
+
+.body {
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	padding: 14px 16px;
+}
+
+.foot {
+	padding: 12px 16px 16px;
+	border-top: 1px solid var(--fg-hairline);
+	display: flex;
+	gap: 10px;
+}

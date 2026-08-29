@@ -1,0 +1,72 @@
+.card {
+	display: flex;
+	gap: 12px;
+	padding: 14px;
+	border-radius: var(--fg-r-lg);
+	background: var(--fg-surface);
+	border: 1px solid var(--fg-hairline);
+	box-shadow: var(--fg-shadow-sm);
+	border-left: 3px solid var(--fg-tone);
+}
+
+.glyph {
+	flex: none;
+	width: 34px;
+	height: 34px;
+	border-radius: var(--fg-r-sm);
+	display: grid;
+	place-items: center;
+	color: var(--fg-tone);
+	background: var(--fg-tone-soft);
+}
+
+.body {
+	flex: 1;
+	min-width: 0;
+}
+
+.top {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 8px;
+}
+
+.title {
+	font-family: var(--fg-font-display);
+	font-weight: 600;
+	font-size: 13px;
+	color: var(--fg-ink);
+	line-height: 1.35;
+}
+
+.pill {
+	flex: none;
+	padding: 3px 8px;
+	border-radius: var(--fg-r-pill);
+	background: var(--fg-tone-soft);
+	color: var(--fg-tone);
+	font-family: var(--fg-font-mono);
+	font-size: 8.5px;
+	font-weight: 500;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+.detail {
+	margin-top: 5px;
+	font-size: 11.5px;
+	line-height: 1.55;
+	color: var(--fg-ink-soft);
+}
+
+.owner {
+	margin-top: 8px;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	font-family: var(--fg-font-mono);
+	font-size: 9.5px;
+	color: var(--fg-ink-faint);
+}

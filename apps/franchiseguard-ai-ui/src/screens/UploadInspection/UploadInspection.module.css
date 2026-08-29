@@ -1,0 +1,31 @@
+.block {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.lede {
+	font-family: var(--fg-font-mono);
+	font-size: 10.5px;
+	color: var(--fg-ink-faint);
+}
+
+.h {
+	font-family: var(--fg-font-display);
+	font-weight: 600;
+	font-size: 14px;
+	letter-spacing: -0.01em;
+	color: var(--fg-ink);
+}
+
+.uploads {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+}
+
+.note {
+	font-size: 11px;
+	line-height: 1.5;
+	color: var(--fg-ink-faint);
+}

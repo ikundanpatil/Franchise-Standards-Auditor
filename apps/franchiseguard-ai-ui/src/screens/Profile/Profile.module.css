@@ -1,0 +1,115 @@
+/* =============================================================================
+   Profile tab — Area Manager identity, stats, account + preferences.
+   ========================================================================== */
+
+.scroll {
+	position: absolute;
+	inset: 0;
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	-webkit-overflow-scrolling: touch;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	padding: 12px 16px 100px;
+	background: var(--fg-ground);
+}
+
+.hero {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	background: var(--fg-grad-sky);
+	border: 1px solid var(--fg-hairline);
+}
+
+.who {
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+}
+
+.name {
+	font-family: var(--fg-font-display);
+	font-weight: 700;
+	font-size: 19px;
+	line-height: 1.15;
+	color: var(--fg-ink);
+}
+
+.role {
+	font-size: 11.5px;
+	color: var(--fg-ink-soft);
+}
+
+.mail {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	font-family: var(--fg-font-mono);
+	font-size: 10px;
+	color: var(--fg-ink-faint);
+}
+
+.metrics {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 10px;
+}
+
+.toggleRow {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 14px;
+	padding: 12px 0;
+}
+
+.toggleText {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	min-width: 0;
+}
+
+.toggleText b {
+	font-family: var(--fg-font-display);
+	font-weight: 600;
+	font-size: 12.5px;
+	color: var(--fg-ink);
+}
+
+.toggleText i {
+	font-style: normal;
+	font-size: 10.5px;
+	line-height: 1.4;
+	color: var(--fg-ink-faint);
+}
+
+.actions {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.version {
+	text-align: center;
+	font-family: var(--fg-font-mono);
+	font-size: 9px;
+	letter-spacing: 0.05em;
+	color: var(--fg-ink-faint);
+	padding: 4px 0 8px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.reveal {
+		animation: fgFadeUp 0.5s var(--fg-ease) backwards;
+	}
+}
+
+@media (max-width: 340px) {
+	.metrics {
+		grid-template-columns: 1fr;
+	}
+}

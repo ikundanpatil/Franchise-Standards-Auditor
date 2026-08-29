@@ -1,0 +1,103 @@
+.visionWrap {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.frameMeta {
+	display: flex;
+	gap: 14px;
+	flex-wrap: wrap;
+}
+.frameMeta span {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	font-family: var(--fg-font-mono);
+	font-size: 9.5px;
+	color: var(--fg-ink-faint);
+}
+.frameMeta svg {
+	color: var(--fg-brand);
+}
+
+.summaryCard {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+.headline {
+	font-family: var(--fg-font-display);
+	font-weight: 600;
+	font-size: 15px;
+	line-height: 1.4;
+	letter-spacing: -0.01em;
+	color: var(--fg-ink);
+	text-wrap: balance;
+}
+
+.chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+.chipCount {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+}
+.chipCount b {
+	font-family: var(--fg-font-mono);
+	font-size: 11px;
+	font-weight: 700;
+	color: var(--fg-ink);
+}
+
+.meter {
+	padding-top: 4px;
+	border-top: 1px solid var(--fg-hairline);
+}
+
+.narrative {
+	font-size: 12px;
+	line-height: 1.6;
+	color: var(--fg-ink-soft);
+}
+
+.violations {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.h {
+	display: flex;
+	align-items: baseline;
+	gap: 8px;
+	flex-wrap: wrap;
+	font-family: var(--fg-font-display);
+	font-weight: 600;
+	font-size: 14px;
+	color: var(--fg-ink);
+}
+.hint {
+	font-family: var(--fg-font-mono);
+	font-size: 9px;
+	font-weight: 400;
+	letter-spacing: 0.02em;
+	color: var(--fg-ink-faint);
+}
+
+.vcard {
+	animation: fgFadeUp 0.45s var(--fg-ease) backwards;
+}
+
+.clean {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 12.5px;
+	line-height: 1.5;
+	color: var(--fg-good);
+}

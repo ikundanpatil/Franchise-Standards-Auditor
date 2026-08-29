@@ -1,0 +1,85 @@
+.box {
+	position: absolute;
+	border: 2px solid var(--fg-tone, var(--fg-brand));
+	border-radius: 4px;
+	background: color-mix(in srgb, var(--fg-tone, #1f5bff) 12%, transparent);
+	box-shadow: 0 0 0 1px rgba(6, 12, 22, 0.4), 0 8px 24px -10px rgba(6, 12, 22, 0.6);
+	cursor: pointer;
+	transition: opacity var(--fg-dur-2) var(--fg-ease), transform var(--fg-dur-1) var(--fg-ease);
+}
+
+.animIn {
+	animation: fgBoxIn 0.45s var(--fg-ease-out) backwards;
+}
+
+.dim {
+	opacity: 0.3;
+}
+
+.active {
+	transform: scale(1.02);
+	background: color-mix(in srgb, var(--fg-tone, #1f5bff) 22%, transparent);
+	box-shadow: 0 0 0 2px var(--fg-tone), 0 10px 30px -8px rgba(6, 12, 22, 0.7);
+	z-index: 3;
+}
+
+.tag {
+	position: absolute;
+	left: -2px;
+	top: -22px;
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	padding: 3px 6px;
+	border-radius: 4px;
+	background: var(--fg-tone, var(--fg-brand));
+	color: #fff;
+	font-family: var(--fg-font-mono);
+	font-size: 8.5px;
+	font-weight: 500;
+	letter-spacing: 0.04em;
+	white-space: nowrap;
+	line-height: 1;
+}
+
+.tag b {
+	font-weight: 700;
+	opacity: 0.92;
+}
+
+.tagBelow {
+	top: auto;
+	bottom: -22px;
+}
+
+/* corner ticks */
+.tick {
+	position: absolute;
+	width: 7px;
+	height: 7px;
+	border: 2px solid var(--fg-tone, var(--fg-brand));
+}
+.t1 {
+	top: -2px;
+	left: -2px;
+	border-right: none;
+	border-bottom: none;
+}
+.t2 {
+	top: -2px;
+	right: -2px;
+	border-left: none;
+	border-bottom: none;
+}
+.t3 {
+	bottom: -2px;
+	left: -2px;
+	border-right: none;
+	border-top: none;
+}
+.t4 {
+	bottom: -2px;
+	right: -2px;
+	border-left: none;
+	border-top: none;
+}

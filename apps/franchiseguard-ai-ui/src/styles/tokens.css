@@ -1,0 +1,349 @@
+/* =============================================================================
+   FranchiseGuard AI — design tokens + a reset scoped to [data-fg-root].
+   Imported once by the app root. Nothing here leaks to :root, so the app
+   stays safe to embed inside the RocketRide shell.
+
+   Palette: enterprise blue + violet, cool neutrals, soft gradients, glass.
+   Material-3-adjacent: 24px cards, tonal surfaces, gentle elevation.
+   ========================================================================== */
+
+[data-fg-root] {
+	/* neutrals — cool, blue-biased */
+	--fg-ground: #eef2fb;
+	--fg-ground-2: #e7ecf9;
+	--fg-surface: #ffffff;
+	--fg-surface-sunk: #f5f8fe;
+	--fg-surface-raised: #ffffff;
+	--fg-ink: #0d1a2d;
+	--fg-ink-soft: #52607a;
+	--fg-ink-faint: #8592a9;
+	--fg-hairline: #e3e9f5;
+	--fg-hairline-strong: #d3dcee;
+
+	/* brand — blue */
+	--fg-brand: #1f5bff;
+	--fg-brand-deep: #0a37cf;
+	--fg-brand-tint: #e8f0ff;
+	--fg-brand-tint-2: #dbe6ff;
+	--fg-on-brand: #ffffff;
+
+	/* accent — violet */
+	--fg-violet: #7c5cff;
+	--fg-violet-deep: #5a33e6;
+	--fg-violet-tint: #efeaff;
+	--fg-violet-tint-2: #e5dcff;
+
+	/* semantic */
+	--fg-good: #12a05f;
+	--fg-good-tint: #e0f4ea;
+	--fg-risk: #e23b2f;
+	--fg-risk-tint: #fce9e7;
+	--fg-warn: #e08404;
+	--fg-warn-tint: #fbeed7;
+	--fg-info: #1f5bff;
+	--fg-info-tint: #e8f0ff;
+	--fg-critical: #a81430;
+	--fg-critical-tint: #f7dfe3;
+	--fg-critical-fg: #ffffff;
+
+	/* gradients — soft */
+	--fg-grad-brand: linear-gradient(135deg, #1f5bff 0%, #7c5cff 100%);
+	--fg-grad-brand-rev: linear-gradient(135deg, #7c5cff 0%, #1f5bff 100%);
+	--fg-grad-brand-deep: linear-gradient(150deg, #1f5bff 0%, #4a2ee0 100%);
+	--fg-grad-sky: linear-gradient(160deg, #eaf1ff 0%, #f3eeff 100%);
+	--fg-grad-risk: linear-gradient(135deg, #f2a73c 0%, #e23b2f 100%);
+	--fg-grad-good: linear-gradient(135deg, #37c98a 0%, #12a05f 100%);
+	--fg-grad-mesh:
+		radial-gradient(60% 55% at 12% 8%, rgba(124, 92, 255, 0.35) 0%, rgba(124, 92, 255, 0) 60%),
+		radial-gradient(55% 50% at 92% 4%, rgba(31, 91, 255, 0.35) 0%, rgba(31, 91, 255, 0) 55%),
+		radial-gradient(80% 60% at 50% 100%, rgba(31, 91, 255, 0.25) 0%, rgba(31, 91, 255, 0) 60%),
+		linear-gradient(160deg, #12246b 0%, #1b1150 100%);
+
+	/* glass — for statistic cards */
+	--fg-glass-bg: rgba(255, 255, 255, 0.62);
+	--fg-glass-brd: rgba(255, 255, 255, 0.75);
+	--fg-glass-hi: rgba(255, 255, 255, 0.9);
+	--fg-glass-blur: 16px;
+
+	/* radii */
+	--fg-r-xs: 8px;
+	--fg-r-sm: 12px;
+	--fg-r-md: 16px;
+	--fg-r-lg: 20px;
+	--fg-r-card: 24px;
+	--fg-r-xl: 28px;
+	--fg-r-pill: 999px;
+
+	/* elevation */
+	--fg-shadow-xs: 0 1px 2px rgba(13, 26, 45, 0.06);
+	--fg-shadow-sm: 0 1px 3px rgba(13, 26, 45, 0.06), 0 6px 14px -10px rgba(17, 42, 84, 0.28);
+	--fg-shadow-card: 0 1px 2px rgba(13, 26, 45, 0.05), 0 14px 30px -20px rgba(17, 42, 84, 0.32);
+	--fg-shadow-lg: 0 2px 6px rgba(13, 26, 45, 0.07), 0 26px 50px -24px rgba(17, 42, 84, 0.42);
+	--fg-shadow-cta: 0 16px 34px -14px rgba(31, 91, 255, 0.5);
+	--fg-shadow-pop: 0 20px 46px -16px rgba(11, 22, 52, 0.5);
+	--fg-shadow-glow: 0 0 0 1px rgba(31, 91, 255, 0.14), 0 12px 40px -12px rgba(31, 91, 255, 0.45);
+
+	/* spacing scale */
+	--fg-sp-1: 4px;
+	--fg-sp-2: 8px;
+	--fg-sp-3: 12px;
+	--fg-sp-4: 16px;
+	--fg-sp-5: 20px;
+	--fg-sp-6: 24px;
+	--fg-sp-7: 32px;
+
+	/* type */
+	--fg-font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+	--fg-font-display: "Sora", "Segoe UI", system-ui, -apple-system, sans-serif;
+	--fg-font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
+
+	/* motion */
+	--fg-ease: cubic-bezier(0.22, 0.8, 0.3, 1);
+	--fg-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+	--fg-dur-1: 0.16s;
+	--fg-dur-2: 0.28s;
+	--fg-dur-3: 0.5s;
+
+	--fg-maxw: 480px;
+
+	color-scheme: light dark;
+}
+
+/* ---- Dark palette --------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+	[data-fg-root]:not([data-theme="light"]) {
+		--fg-ground: #0a1220;
+		--fg-ground-2: #0c1524;
+		--fg-surface: #101d30;
+		--fg-surface-sunk: #0d1926;
+		--fg-surface-raised: #14243a;
+		--fg-ink: #e9f0fb;
+		--fg-ink-soft: #98a7be;
+		--fg-ink-faint: #6a7c96;
+		--fg-hairline: #1e2d43;
+		--fg-hairline-strong: #2a3c58;
+
+		--fg-brand: #5487ff;
+		--fg-brand-deep: #2f66f0;
+		--fg-brand-tint: #17253e;
+		--fg-brand-tint-2: #1b2f50;
+
+		--fg-violet: #9b83ff;
+		--fg-violet-deep: #7a5cff;
+		--fg-violet-tint: #211a3d;
+		--fg-violet-tint-2: #2a2150;
+
+		--fg-good: #35c78a;
+		--fg-good-tint: #0f2a20;
+		--fg-risk: #f0655f;
+		--fg-risk-tint: #2c1614;
+		--fg-warn: #f0a83f;
+		--fg-warn-tint: #2c2110;
+		--fg-info: #5487ff;
+		--fg-info-tint: #17253e;
+		--fg-critical: #f0655f;
+		--fg-critical-tint: #331215;
+		--fg-critical-fg: #1a0d0d;
+
+		--fg-grad-sky: linear-gradient(160deg, #142449 0%, #1c1746 100%);
+
+		--fg-glass-bg: rgba(19, 32, 52, 0.55);
+		--fg-glass-brd: rgba(255, 255, 255, 0.08);
+		--fg-glass-hi: rgba(255, 255, 255, 0.14);
+
+		--fg-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+		--fg-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.45), 0 8px 18px -12px rgba(0, 0, 0, 0.7);
+		--fg-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.45), 0 16px 34px -22px rgba(0, 0, 0, 0.8);
+		--fg-shadow-lg: 0 2px 6px rgba(0, 0, 0, 0.5), 0 30px 56px -26px rgba(0, 0, 0, 0.85);
+		--fg-shadow-cta: 0 16px 34px -14px rgba(31, 91, 255, 0.55);
+		--fg-shadow-pop: 0 22px 50px -18px rgba(0, 0, 0, 0.7);
+		--fg-shadow-glow: 0 0 0 1px rgba(84, 135, 255, 0.22), 0 14px 44px -12px rgba(84, 135, 255, 0.5);
+	}
+}
+
+/* ---- Dark palette — explicit pin --------------------------------------- */
+[data-fg-root][data-theme="dark"] {
+	--fg-ground: #0a1220;
+	--fg-ground-2: #0c1524;
+	--fg-surface: #101d30;
+	--fg-surface-sunk: #0d1926;
+	--fg-surface-raised: #14243a;
+	--fg-ink: #e9f0fb;
+	--fg-ink-soft: #98a7be;
+	--fg-ink-faint: #6a7c96;
+	--fg-hairline: #1e2d43;
+	--fg-hairline-strong: #2a3c58;
+
+	--fg-brand: #5487ff;
+	--fg-brand-deep: #2f66f0;
+	--fg-brand-tint: #17253e;
+	--fg-brand-tint-2: #1b2f50;
+
+	--fg-violet: #9b83ff;
+	--fg-violet-deep: #7a5cff;
+	--fg-violet-tint: #211a3d;
+	--fg-violet-tint-2: #2a2150;
+
+	--fg-good: #35c78a;
+	--fg-good-tint: #0f2a20;
+	--fg-risk: #f0655f;
+	--fg-risk-tint: #2c1614;
+	--fg-warn: #f0a83f;
+	--fg-warn-tint: #2c2110;
+	--fg-info: #5487ff;
+	--fg-info-tint: #17253e;
+	--fg-critical: #f0655f;
+	--fg-critical-tint: #331215;
+	--fg-critical-fg: #1a0d0d;
+
+	--fg-grad-sky: linear-gradient(160deg, #142449 0%, #1c1746 100%);
+
+	--fg-glass-bg: rgba(19, 32, 52, 0.55);
+	--fg-glass-brd: rgba(255, 255, 255, 0.08);
+	--fg-glass-hi: rgba(255, 255, 255, 0.14);
+
+	--fg-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+	--fg-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.45), 0 8px 18px -12px rgba(0, 0, 0, 0.7);
+	--fg-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.45), 0 16px 34px -22px rgba(0, 0, 0, 0.8);
+	--fg-shadow-lg: 0 2px 6px rgba(0, 0, 0, 0.5), 0 30px 56px -26px rgba(0, 0, 0, 0.85);
+	--fg-shadow-cta: 0 16px 34px -14px rgba(31, 91, 255, 0.55);
+	--fg-shadow-pop: 0 22px 50px -18px rgba(0, 0, 0, 0.7);
+	--fg-shadow-glow: 0 0 0 1px rgba(84, 135, 255, 0.22), 0 14px 44px -12px rgba(84, 135, 255, 0.5);
+}
+
+/* ---- Tone helper — any element opts into a semantic colour pair --------- */
+[data-fg-tone="good"] {
+	--fg-tone: var(--fg-good);
+	--fg-tone-soft: var(--fg-good-tint);
+}
+[data-fg-tone="risk"] {
+	--fg-tone: var(--fg-risk);
+	--fg-tone-soft: var(--fg-risk-tint);
+}
+[data-fg-tone="warn"] {
+	--fg-tone: var(--fg-warn);
+	--fg-tone-soft: var(--fg-warn-tint);
+}
+[data-fg-tone="info"] {
+	--fg-tone: var(--fg-brand);
+	--fg-tone-soft: var(--fg-brand-tint);
+}
+[data-fg-tone="violet"] {
+	--fg-tone: var(--fg-violet);
+	--fg-tone-soft: var(--fg-violet-tint);
+}
+[data-fg-tone="critical"] {
+	--fg-tone: var(--fg-critical);
+	--fg-tone-soft: var(--fg-critical-tint);
+}
+
+/* ---- Scoped reset — zero specificity with :where() --------------------- */
+:where([data-fg-root]),
+:where([data-fg-root]) *,
+:where([data-fg-root]) *::before,
+:where([data-fg-root]) *::after {
+	box-sizing: border-box;
+}
+
+[data-fg-root] {
+	-webkit-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: transparent;
+	font-family: var(--fg-font-sans);
+}
+
+:where([data-fg-root]) button {
+	font: inherit;
+	color: inherit;
+	background: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+}
+
+:where([data-fg-root]) input,
+:where([data-fg-root]) textarea {
+	font: inherit;
+	color: inherit;
+}
+
+:where([data-fg-root]) h1,
+:where([data-fg-root]) h2,
+:where([data-fg-root]) h3,
+:where([data-fg-root]) p {
+	margin: 0;
+}
+
+/* ---- Shared keyframes (fg-prefixed, safe globally) -------------------- */
+@keyframes fgFadeUp {
+	from { opacity: 0; transform: translateY(12px); }
+	to { opacity: 1; transform: none; }
+}
+@keyframes fgFadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+@keyframes fgScaleIn {
+	from { opacity: 0; transform: scale(0.94); }
+	to { opacity: 1; transform: none; }
+}
+@keyframes fgSlideInR {
+	from { opacity: 0; transform: translateX(24px); }
+	to { opacity: 1; transform: none; }
+}
+@keyframes fgSlideInL {
+	from { opacity: 0; transform: translateX(-24px); }
+	to { opacity: 1; transform: none; }
+}
+@keyframes fgSlideUpSheet {
+	from { transform: translateY(100%); }
+	to { transform: translateY(0); }
+}
+@keyframes fgShimmer {
+	from { background-position: -180% 0; }
+	to { background-position: 180% 0; }
+}
+@keyframes fgSpin {
+	to { transform: rotate(360deg); }
+}
+@keyframes fgPulseRing {
+	0% { box-shadow: 0 0 0 0 rgba(31, 91, 255, 0.45); }
+	70% { box-shadow: 0 0 0 12px rgba(31, 91, 255, 0); }
+	100% { box-shadow: 0 0 0 0 rgba(31, 91, 255, 0); }
+}
+@keyframes fgScan {
+	0% { transform: translateY(-10%); opacity: 0; }
+	12% { opacity: 1; }
+	88% { opacity: 1; }
+	100% { transform: translateY(1100%); opacity: 0; }
+}
+@keyframes fgDraw {
+	to { stroke-dashoffset: 0; }
+}
+@keyframes fgFloat {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(-6px); }
+}
+@keyframes fgBadgePing {
+	0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.55); }
+	70% { box-shadow: 0 0 0 6px rgba(255, 255, 255, 0); }
+	100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+@keyframes fgRipple {
+	to { transform: scale(3.4); opacity: 0; }
+}
+@keyframes fgBoxIn {
+	from { opacity: 0; transform: scale(1.08); }
+	to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	[data-fg-root] *,
+	[data-fg-root] *::before,
+	[data-fg-root] *::after {
+		animation-duration: 0.001ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.001ms !important;
+		scroll-behavior: auto !important;
+	}
+}

@@ -1,0 +1,112 @@
+.tile {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 7px;
+	min-height: 138px;
+	padding: 14px;
+	text-align: left;
+	border-radius: var(--fg-r-card);
+	background: var(--fg-glass-bg);
+	border: 1px solid var(--fg-glass-brd);
+	box-shadow: var(--fg-shadow-card);
+	backdrop-filter: blur(var(--fg-glass-blur));
+	-webkit-backdrop-filter: blur(var(--fg-glass-blur));
+	overflow: hidden;
+	color: var(--fg-ink);
+}
+
+.sheen {
+	position: absolute;
+	inset: 0 0 auto 0;
+	height: 54%;
+	background: linear-gradient(180deg, var(--fg-glass-hi), transparent);
+	pointer-events: none;
+}
+
+.pressable {
+	transition: transform var(--fg-dur-1) var(--fg-ease);
+}
+.pressable:active {
+	transform: scale(0.98);
+}
+.pressable:focus-visible {
+	outline: 2px solid var(--fg-brand);
+	outline-offset: 2px;
+}
+
+.top {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	position: relative;
+}
+
+.icon {
+	width: 34px;
+	height: 34px;
+	border-radius: var(--fg-r-sm);
+	display: grid;
+	place-items: center;
+	color: var(--fg-tone);
+	background: var(--fg-tone-soft);
+}
+
+.spark {
+	width: 62px;
+	height: 22px;
+}
+
+.value {
+	margin: auto 0 0;
+	font-family: var(--fg-font-display);
+	font-weight: 700;
+	font-size: 27px;
+	line-height: 1;
+	letter-spacing: -0.03em;
+	color: var(--fg-ink);
+	font-variant-numeric: tabular-nums;
+	position: relative;
+}
+
+.unit {
+	margin-left: 3px;
+	font-family: var(--fg-font-mono);
+	font-size: 11px;
+	font-weight: 500;
+	color: var(--fg-ink-faint);
+}
+
+.label {
+	font-family: var(--fg-font-mono);
+	font-size: 9.5px;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--fg-ink-soft);
+	position: relative;
+}
+
+.meta {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	position: relative;
+}
+
+.delta {
+	font-family: var(--fg-font-mono);
+	font-size: 9.5px;
+	font-weight: 500;
+	color: var(--fg-ink-faint);
+}
+.delta[data-good='yes'] {
+	color: var(--fg-good);
+}
+.delta[data-good='no'] {
+	color: var(--fg-risk);
+}
+
+.caption {
+	font-size: 10px;
+	color: var(--fg-ink-faint);
+}

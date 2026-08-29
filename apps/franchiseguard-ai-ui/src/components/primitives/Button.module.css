@@ -1,0 +1,121 @@
+.btn {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	border-radius: var(--fg-r-pill);
+	font-family: var(--fg-font-display);
+	font-weight: 600;
+	letter-spacing: -0.01em;
+	white-space: nowrap;
+	overflow: hidden;
+	isolation: isolate;
+	transition: transform var(--fg-dur-1) var(--fg-ease), box-shadow var(--fg-dur-1) var(--fg-ease),
+		background-color var(--fg-dur-1) var(--fg-ease), opacity var(--fg-dur-1) var(--fg-ease);
+}
+
+.btn:active {
+	transform: translateY(1px) scale(0.985);
+}
+
+.btn:focus-visible {
+	outline: 2px solid var(--fg-brand);
+	outline-offset: 2px;
+}
+
+.btn:disabled {
+	opacity: 0.55;
+	cursor: not-allowed;
+}
+
+.label {
+	position: relative;
+	z-index: 1;
+}
+
+/* sizes */
+.sm {
+	padding: 8px 14px;
+	font-size: 12.5px;
+}
+.md {
+	padding: 11px 18px;
+	font-size: 13.5px;
+}
+.lg {
+	padding: 15px 22px;
+	font-size: 15px;
+}
+
+.block {
+	display: flex;
+	width: 100%;
+}
+
+/* variants */
+.primary {
+	color: #fff;
+	background: var(--fg-grad-brand);
+	box-shadow: var(--fg-shadow-cta);
+}
+.primary:hover {
+	box-shadow: 0 20px 40px -14px rgba(31, 91, 255, 0.6);
+}
+
+.secondary {
+	color: var(--fg-brand);
+	background: var(--fg-brand-tint);
+	box-shadow: inset 0 0 0 1px var(--fg-brand-tint-2);
+}
+
+.ghost {
+	color: var(--fg-ink-soft);
+	background: transparent;
+	box-shadow: inset 0 0 0 1px var(--fg-hairline);
+}
+
+.danger {
+	color: #fff;
+	background: var(--fg-grad-risk);
+	box-shadow: 0 16px 32px -16px rgba(226, 59, 47, 0.55);
+}
+
+.glass {
+	color: #fff;
+	background: rgba(255, 255, 255, 0.16);
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+	backdrop-filter: blur(8px);
+}
+
+/* ripple */
+.ripples {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	border-radius: inherit;
+	overflow: hidden;
+	pointer-events: none;
+}
+.ripple {
+	position: absolute;
+	border-radius: 50%;
+	background: currentColor;
+	opacity: 0.22;
+	transform: scale(0);
+	animation: fgRipple 0.6s var(--fg-ease-out) forwards;
+}
+
+/* spinner */
+.spinner {
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	border: 2px solid currentColor;
+	border-top-color: transparent;
+	animation: fgSpin 0.7s linear infinite;
+}
+
+.loading .label {
+	opacity: 0.85;
+}

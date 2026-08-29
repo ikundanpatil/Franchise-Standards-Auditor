@@ -1,0 +1,85 @@
+/* =============================================================================
+   Location Memory — store history: risk score, complaint trend, resolved vs
+   unresolved, and the full inspection log for one store.
+   ========================================================================== */
+
+.hero {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	background: var(--fg-grad-sky);
+	border: 1px solid var(--fg-hairline);
+}
+
+.heroTop {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.score {
+	font-family: var(--fg-font-display);
+	font-weight: 700;
+	font-size: 44px;
+	line-height: 1;
+	color: var(--fg-ink);
+}
+
+.scoreUnit {
+	font-family: var(--fg-font-mono);
+	font-size: 12px;
+	color: var(--fg-ink-faint);
+	margin-left: 2px;
+}
+
+.heroSpark {
+	width: 100%;
+}
+
+.addr {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	font-family: var(--fg-font-mono);
+	font-size: 10px;
+	color: var(--fg-ink-soft);
+}
+
+.pills {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-top: 10px;
+}
+
+.legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 14px;
+	margin-top: 12px;
+}
+
+.legend span {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-family: var(--fg-font-mono);
+	font-size: 9.5px;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--fg-ink-soft);
+}
+
+.legend i {
+	width: 10px;
+	height: 10px;
+	border-radius: 3px;
+	flex: none;
+}

@@ -1,0 +1,31 @@
+.screen {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+	background: var(--fg-ground);
+}
+
+.scroll {
+	flex: 1;
+	min-height: 0;
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	-webkit-overflow-scrolling: touch;
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	padding: 8px 16px 28px;
+}
+
+.padNav {
+	padding-bottom: 96px;
+}
+
+.footer {
+	flex: none;
+	padding: 12px 16px calc(14px + env(safe-area-inset-bottom, 0px));
+	background: linear-gradient(180deg, transparent, var(--fg-ground) 24%);
+	border-top: 1px solid var(--fg-hairline);
+}

@@ -1,0 +1,33 @@
+.wrap {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.eyebrow {
+	margin: 0;
+	font-family: var(--fg-font-mono);
+	font-size: 10.5px;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--fg-ink-faint);
+}
+
+.title {
+	margin: 0;
+	font-family: var(--fg-font-display);
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 1.24;
+	letter-spacing: -0.02em;
+	color: var(--fg-ink);
+	text-wrap: balance;
+}
+
+.sub {
+	margin: 2px 0 0;
+	font-size: 12.5px;
+	line-height: 1.5;
+	color: var(--fg-ink-soft);
+	max-width: 40ch;
+}

@@ -1,0 +1,36 @@
+.scroll {
+	position: absolute;
+	inset: 0;
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	-webkit-overflow-scrolling: touch;
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	padding: 10px 16px 96px;
+	background: var(--fg-ground);
+}
+
+.stats {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.reveal {
+		animation: fgFadeUp 0.5s var(--fg-ease) backwards;
+	}
+}
+
+@media (max-width: 330px) {
+	.stats {
+		grid-template-columns: 1fr;
+	}
+}

@@ -1,0 +1,102 @@
+.hero {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+}
+
+.heroBody {
+	flex: 1;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.heroTag {
+	align-self: flex-start;
+	padding: 4px 9px;
+	border-radius: var(--fg-r-pill);
+	background: var(--fg-tone-soft);
+	color: var(--fg-tone);
+	font-family: var(--fg-font-mono);
+	font-size: 8.5px;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+}
+
+.heroLine {
+	font-size: 11.5px;
+	line-height: 1.55;
+	color: var(--fg-ink-soft);
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.heroMeta {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	font-family: var(--fg-font-mono);
+	font-size: 9px;
+	color: var(--fg-ink-faint);
+}
+
+.counts {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+}
+.countCard {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2px;
+	padding: 14px 8px;
+	border-radius: var(--fg-r-md);
+	background: var(--fg-tone-soft);
+	border: 1px solid var(--fg-hairline);
+}
+.countCard b {
+	font-family: var(--fg-font-display);
+	font-weight: 700;
+	font-size: 24px;
+	color: var(--fg-tone);
+	line-height: 1;
+}
+.countCard span {
+	font-family: var(--fg-font-mono);
+	font-size: 9px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--fg-ink-soft);
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.rec {
+	animation: fgFadeUp 0.45s var(--fg-ease) backwards;
+}
+
+.clean {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+	font-size: 12.5px;
+	color: var(--fg-good);
+}
+
+.actions {
+	display: grid;
+	grid-template-columns: 1fr 1.4fr;
+	gap: 10px;
+}
+
+.followRow {
+	padding-bottom: 4px;
+}

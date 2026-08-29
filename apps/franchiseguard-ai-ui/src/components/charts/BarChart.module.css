@@ -1,0 +1,39 @@
+.wrap {
+	width: 100%;
+}
+
+.svg {
+	display: block;
+	overflow: visible;
+}
+
+.grid {
+	stroke: var(--fg-hairline);
+	stroke-width: 1;
+	stroke-dasharray: 2 4;
+	vector-effect: non-scaling-stroke;
+}
+
+.bar {
+	transition: height 0.7s var(--fg-ease-out), y 0.7s var(--fg-ease-out);
+}
+
+.yLabel,
+.xLabel {
+	fill: var(--fg-ink-faint);
+	font-family: var(--fg-font-mono);
+	font-size: 8px;
+}
+
+.xLabel {
+	fill: var(--fg-ink-soft);
+	font-size: 8.5px;
+}
+
+.valLabel {
+	fill: var(--fg-ink);
+	font-family: var(--fg-font-display);
+	font-size: 9px;
+	font-weight: 700;
+	animation: fgFadeIn 0.4s ease 0.5s backwards;
+}

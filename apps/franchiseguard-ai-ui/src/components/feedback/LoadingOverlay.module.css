@@ -1,0 +1,138 @@
+.root {
+	position: absolute;
+	inset: 0;
+	z-index: 70;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 14px;
+	padding: 32px 28px;
+	text-align: center;
+	background: var(--fg-grad-mesh);
+	color: #eaf1fb;
+	animation: fgFadeIn var(--fg-dur-2) ease;
+}
+
+.halo {
+	position: relative;
+	width: 108px;
+	height: 108px;
+	display: grid;
+	place-items: center;
+	margin-bottom: 6px;
+}
+
+.ring,
+.ring2 {
+	position: absolute;
+	inset: 0;
+	border-radius: 50%;
+	border: 2px solid rgba(255, 255, 255, 0.18);
+	border-top-color: #7c5cff;
+	animation: fgSpin 1.5s linear infinite;
+}
+.ring2 {
+	inset: 14px;
+	border-top-color: #5da5ff;
+	animation-duration: 2.1s;
+	animation-direction: reverse;
+}
+
+.core {
+	width: 62px;
+	height: 62px;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	color: #fff;
+	background: var(--fg-grad-brand);
+	box-shadow: 0 0 30px -4px rgba(124, 92, 255, 0.7);
+}
+
+.title {
+	font-family: var(--fg-font-display);
+	font-weight: 700;
+	font-size: 17px;
+	letter-spacing: -0.02em;
+}
+
+.now {
+	font-family: var(--fg-font-mono);
+	font-size: 11px;
+	color: #b9c6dd;
+	min-height: 16px;
+}
+
+.track {
+	width: min(240px, 80%);
+	height: 6px;
+	border-radius: var(--fg-r-pill);
+	background: rgba(255, 255, 255, 0.14);
+	overflow: hidden;
+}
+.fill {
+	display: block;
+	height: 100%;
+	border-radius: inherit;
+	background: linear-gradient(90deg, #5da5ff, #7c5cff);
+	transition: width 0.6s var(--fg-ease-out);
+}
+
+.steps {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 9px;
+	margin-top: 6px;
+	text-align: left;
+}
+
+.steps li {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+	font-size: 12px;
+	transition: color var(--fg-dur-2) var(--fg-ease);
+}
+.pending {
+	color: rgba(234, 241, 251, 0.4);
+}
+.active {
+	color: #fff;
+	font-weight: 600;
+}
+.done {
+	color: rgba(234, 241, 251, 0.75);
+}
+
+.dot {
+	flex: none;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	background: rgba(255, 255, 255, 0.12);
+	color: #8ef0c0;
+}
+.active .dot {
+	background: rgba(124, 92, 255, 0.3);
+}
+
+.spin {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	border: 2px solid #cbd6ea;
+	border-top-color: transparent;
+	animation: fgSpin 0.7s linear infinite;
+}
+
+.foot {
+	margin-top: 10px;
+	font-family: var(--fg-font-mono);
+	font-size: 8.5px;
+	letter-spacing: 0.06em;
+	color: rgba(185, 198, 221, 0.6);
+}

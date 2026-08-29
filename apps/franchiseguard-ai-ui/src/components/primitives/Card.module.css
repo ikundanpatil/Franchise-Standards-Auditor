@@ -1,0 +1,58 @@
+.card {
+	position: relative;
+	display: block;
+	width: 100%;
+	text-align: left;
+	border-radius: var(--fg-r-card);
+	background: var(--fg-surface);
+	border: 1px solid var(--fg-hairline);
+	box-shadow: var(--fg-shadow-card);
+	color: var(--fg-ink);
+}
+
+.glass {
+	position: relative;
+	display: block;
+	width: 100%;
+	text-align: left;
+	border-radius: var(--fg-r-card);
+	background: var(--fg-glass-bg);
+	border: 1px solid var(--fg-glass-brd);
+	box-shadow: var(--fg-shadow-card);
+	color: var(--fg-ink);
+	backdrop-filter: blur(var(--fg-glass-blur));
+	-webkit-backdrop-filter: blur(var(--fg-glass-blur));
+	overflow: hidden;
+}
+
+.glassSheen {
+	position: absolute;
+	inset: 0 0 auto 0;
+	height: 52%;
+	background: linear-gradient(180deg, var(--fg-glass-hi), transparent);
+	pointer-events: none;
+}
+
+.p-none {
+	padding: 0;
+}
+.p-sm {
+	padding: 12px;
+}
+.p-md {
+	padding: 16px;
+}
+.p-lg {
+	padding: 20px;
+}
+
+.pressable {
+	transition: transform var(--fg-dur-1) var(--fg-ease), box-shadow var(--fg-dur-1) var(--fg-ease);
+}
+.pressable:active {
+	transform: scale(0.985);
+}
+.pressable:focus-visible {
+	outline: 2px solid var(--fg-brand);
+	outline-offset: 2px;
+}

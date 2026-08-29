@@ -1,0 +1,100 @@
+.wrap {
+	position: relative;
+	width: 100%;
+}
+
+.svg {
+	display: block;
+	overflow: visible;
+	touch-action: pan-y;
+}
+
+.grid {
+	stroke: var(--fg-hairline);
+	stroke-width: 1;
+	stroke-dasharray: 2 4;
+	vector-effect: non-scaling-stroke;
+}
+
+.yLabel,
+.xLabel {
+	fill: var(--fg-ink-faint);
+	font-family: var(--fg-font-mono);
+	font-size: 8px;
+	letter-spacing: 0.02em;
+}
+
+.draw {
+	stroke-dasharray: 620;
+	stroke-dashoffset: 620;
+	animation: fgDraw 1.2s var(--fg-ease-out) forwards;
+}
+
+.crossLine {
+	stroke: var(--fg-ink-faint);
+	stroke-width: 1;
+	stroke-dasharray: 3 3;
+	vector-effect: non-scaling-stroke;
+}
+
+.tip {
+	position: absolute;
+	top: 2px;
+	transform: translateX(-50%);
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	padding: 8px 10px;
+	border-radius: var(--fg-r-sm);
+	background: var(--fg-ink);
+	color: var(--fg-ground);
+	box-shadow: var(--fg-shadow-pop);
+	pointer-events: none;
+	white-space: nowrap;
+	z-index: 5;
+}
+
+.tipLabel {
+	font-family: var(--fg-font-mono);
+	font-size: 9px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	opacity: 0.7;
+}
+
+.tipRow {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 11px;
+}
+.tipRow i {
+	width: 7px;
+	height: 7px;
+	border-radius: 2px;
+}
+.tipRow b {
+	margin-left: auto;
+	font-family: var(--fg-font-mono);
+	font-weight: 600;
+}
+
+.legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-top: 8px;
+	padding-left: 4px;
+}
+.legendItem {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 10.5px;
+	color: var(--fg-ink-soft);
+}
+.legendItem i {
+	width: 9px;
+	height: 3px;
+	border-radius: var(--fg-r-pill);
+}

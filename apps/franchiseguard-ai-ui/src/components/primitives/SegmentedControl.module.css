@@ -1,0 +1,37 @@
+.wrap {
+	position: relative;
+	display: flex;
+	gap: 4px;
+	padding: 4px;
+	border-radius: var(--fg-r-pill);
+	background: var(--fg-surface-sunk);
+	border: 1px solid var(--fg-hairline);
+}
+
+.thumb {
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	bottom: 4px;
+	border-radius: var(--fg-r-pill);
+	background: var(--fg-surface);
+	box-shadow: var(--fg-shadow-sm);
+	transition: transform var(--fg-dur-2) var(--fg-ease);
+}
+
+.seg {
+	position: relative;
+	z-index: 1;
+	flex: 1;
+	padding: 8px 6px;
+	border-radius: var(--fg-r-pill);
+	font-family: var(--fg-font-display);
+	font-size: 12px;
+	font-weight: 600;
+	color: var(--fg-ink-faint);
+	transition: color var(--fg-dur-1) var(--fg-ease);
+}
+
+.active {
+	color: var(--fg-brand);
+}
