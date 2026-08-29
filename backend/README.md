@@ -136,6 +136,25 @@ persists an `AIAnalysis` row, and writes detections back as `Violation`s.
 
 Errors use a stable envelope: `{"error": {"code": "...", "message": "...", "details": ...}}`.
 
+## External integrations (`app/integrations/`)
+
+All secrets come from `.env` — nothing hardcoded. An unconfigured integration
+returns HTTP 503 `integration_not_configured`; the API still boots.
+
+| Module | Reads | Provides | Used by |
+|---|---|---|---|
+| `gemini_client.py` | `GEMINI_API_KEY`, `GEMINI_MODEL` | `analyze_complaint()`, `generate_report()` (REST `generateContent`, JSON out, retries) | `POST /ai/complaints/analyze`, `POST /ai/reports/generate` |
+| `supabase_client.py` | `SUPABASE_URL`, `SUPABASE_KEY` | `upload_inspection_image()` (Storage), `save_report()` (PostgREST) | `POST /ai/vision/detect?upload=true`, `POST /ai/reports/generate?save_to_supabase=true` |
+| `vision_service.py` | *no API key* — `VISION_BACKEND=yolo`, `YOLO_MODEL_PATH` | `analyze_image()` — local Ultralytics YOLO, mapped to the violation catalogue | `POST /ai/vision/detect` |
+
+`GET /ai/integrations` reports which are configured (no secrets). YOLO needs the
+optional extras: `pip install -r requirements-vision.txt` + a model file.
+
+## Raw SQL — `schema.sql` / `seed.sql`
+
+Native-Postgres bootstrap for a Supabase-first setup (6 tables, no `ai_analyses`).
+See [DATABASE.md](DATABASE.md). Use **either** this **or** Alembic, not both.
+
 ## Migrations
 
 ```bash

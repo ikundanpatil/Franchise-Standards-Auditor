@@ -74,6 +74,35 @@ class Settings(BaseSettings):
     ROCKETRIDE_JWKS_URL: str | None = None
     ROCKETRIDE_AUDIENCE: str | None = None
 
+    # -- External integrations (app/integrations/) ----------------------------
+    # Google Gemini — complaint analysis + report narrative generation.
+    GEMINI_API_KEY: str | None = None
+    GEMINI_MODEL: str = "gemini-2.0-flash"
+    GEMINI_API_BASE: str = "https://generativelanguage.googleapis.com/v1beta"
+    GEMINI_TIMEOUT_SECONDS: float = 30.0
+
+    # Supabase — inspection-image storage + report persistence.
+    SUPABASE_URL: str | None = None
+    SUPABASE_KEY: str | None = None
+    SUPABASE_INSPECTION_BUCKET: str = "inspection-images"
+    SUPABASE_REPORTS_TABLE: str = "reports"
+    SUPABASE_TIMEOUT_SECONDS: float = 30.0
+
+    # YOLO — local vision service, NO API key. Requires `ultralytics` installed
+    # (pip install -r requirements-vision.txt) and a model file on disk.
+    VISION_BACKEND: Literal["simulated", "yolo"] = "simulated"
+    YOLO_MODEL_PATH: str = "yolov8n.pt"
+    YOLO_CONFIDENCE_THRESHOLD: float = 0.35
+    YOLO_DEVICE: str | None = None  # e.g. "cpu", "cuda:0"; None = auto
+
+    @property
+    def gemini_configured(self) -> bool:
+        return bool(self.GEMINI_API_KEY)
+
+    @property
+    def supabase_configured(self) -> bool:
+        return bool(self.SUPABASE_URL and self.SUPABASE_KEY)
+
     # ---------------------------------------------------------------------
     @field_validator("BACKEND_CORS_ORIGINS", mode="before")
     @classmethod

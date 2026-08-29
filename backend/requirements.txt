@@ -9,6 +9,9 @@ uvicorn[standard]==0.34.0
 python-multipart==0.0.20          # OAuth2PasswordRequestForm / file uploads
 orjson==3.10.12                   # fast JSON responses
 
+# --- HTTP client (external integrations: Gemini, Supabase) ------------------
+httpx==0.28.1
+
 # --- Data / validation -------------------------------------------------------
 pydantic==2.10.4
 pydantic-settings==2.7.0
